@@ -13,6 +13,7 @@ class Tendermint < Formula
   def install
     ENV["GOROOT"] = "#{HOMEBREW_PREFIX}/opt/go/libexec"
     system "go", "env" # Debug env
+    system "make", "tools"
     system "make", "get_vendor_deps"
     system "make", "build"
     bin.install 'build/bin/tendermint'
