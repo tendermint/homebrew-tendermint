@@ -1,7 +1,6 @@
-
 require 'formula'
 
-class Ethereum < Formula
+class Tendermint < Formula
   homepage 'https://github.com/tendermint/tendermint'
   url 'https://github.com/tendermint/tendermint.git', :tag => 'v0.10.0'
 
