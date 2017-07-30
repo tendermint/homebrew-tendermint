@@ -1,52 +1,28 @@
 # homebrew-tendermint
-Homebrew Tap for Tendermint, Ethermint, Basecoin and all related projects.
+Homebrew Tap for Tendermint and Ethermint.
 
 ## Installation
-
 ```
 brew tap tendermint/tendermint
 ```
 
-### Tendermint client
+### Tendermint Client
 ```
 brew install tendermint
 ```
 
+### Ethermint Client
+```
+brew install ethermint
+```
+
+*You can get the latest build by using the `--devel` flag.
+```
+brew install ethermint --devel
+```
+
 ## Running
 
-### Tendermint client
-`tendermint`
-
-
-## Development
-Get the latest development version with the `--devel` flag.
-
-### Go client
-```
-brew reinstall ethereum --devel
-```
-
-### Current branches
-
-Tendermint:
-* `--devel` is on master branch
-
-
-## Upgrading
-
-```
-brew update && brew upgrade
-```
-
-
-##Patching
-
-First `cd /Library/Caches/Homebrew/ethereum--git/` and make your changes. Then `git diff > shiny.patch`, copy/paste the content of your patch under `__END__` of `ethereum.rb` and replace the `def patches` block with:
-
-```
-def patches
-  DATA
-end
-```
-
-If you want to submit your change, save your patch in a gist, add your `option 'shiny-option', 'Shiny description'` and the URL to your gist in the patches block and submit a pull request. Make sure to send a pull request to Ethereum also!
+Please see the documentation for the respective clients for more information on running them.
+[Ethermint](https://github.com/tendermint/ethermint)
+[Tendermint](https://github.com/tendermint/tendermint)
