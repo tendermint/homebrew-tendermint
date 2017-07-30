@@ -13,10 +13,17 @@ class Ethermint < Formula
 
     def install
         ENV["GOROOT"] = "#{HOMEBREW_PREFIX}/opt/go/libexec"
-        system "go", "env" # Debug env
-        system "make", "get_vendor_deps"
-        system "make", "build"
-        bin.install 'build/ethermint'
+        ENV["GOPATH"] = buildpath
+        ethermintpath = buildpath/"src/github.com/tendermint/ethermint"
+        ethermintpath.install buildpath.children
+
+        cd ethermintpath do
+            system "go", "env" # Debug env
+            system "glide", "--version" # Debug env
+            system "make", "get_vendor_deps"
+            system "make", "build"
+            bin.install 'build/ethermint'
+        end
     end
 
 
