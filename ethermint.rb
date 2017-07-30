@@ -5,7 +5,7 @@ class Ethermint < Formula
     url 'https://github.com/tendermint/ethermint.git', :tag => 'v0.4.0'
 
     devel do
-        url 'https://github.com/tendermint/ethermint.git', :branch => 'develop'
+        url 'https://github.com/tendermint/ethermint.git', :branch => 'master'
     end
 
     depends_on 'go' => :build
