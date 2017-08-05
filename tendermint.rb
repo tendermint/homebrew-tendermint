@@ -14,7 +14,7 @@ class Tendermint < Formula
   def install
       ENV["GOROOT"] = "#{HOMEBREW_PREFIX}/opt/go/libexec"
       ENV["GOPATH"] = buildpath
-      tendermintpath = buildpath/src/github.com/tendermint/tendermint
+      tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
       tendermintpath.install buildpath.children
 
       cd tendermintpath do
