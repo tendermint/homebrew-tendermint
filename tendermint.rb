@@ -2,7 +2,7 @@ require 'formula'
 
 class Tendermint < Formula
   homepage 'https://github.com/tendermint/tendermint'
-  url 'https://github.com/tendermint/tendermint.git', :tag => 'v0.10.1'
+  url 'https://github.com/tendermint/tendermint.git', :tag => 'v0.10.2'
 
   devel do
     url 'https://github.com/tendermint/tendermint.git', :branch => 'master'
@@ -14,7 +14,7 @@ class Tendermint < Formula
   def install
       ENV["GOROOT"] = "#{HOMEBREW_PREFIX}/opt/go/libexec"
       ENV["GOPATH"] = buildpath
-      tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
+      tendermintpath = buildpath/src/github.com/tendermint/tendermint
       tendermintpath.install buildpath.children
 
       cd tendermintpath do
