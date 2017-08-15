@@ -2,7 +2,15 @@ require 'formula'
 
 class Tendermint < Formula
   homepage 'https://github.com/tendermint/tendermint'
-  url 'https://github.com/tendermint/tendermint.git', :tag => 'v0.10.3'
+  url 'https://github.com/tendermint/tendermint/releases/download/v0.10.3/tendermint_0.10.3_darwin_amd64.zip'
+  head 'https://github.com/tendermint/tendermint.git'
+  
+  bottle do
+    cellar :any
+    sha256 "731408b6550caa6954904e3ad1a926f1724de54cfd243fe02828f40cd392575b" => :sierra
+    sha256 "731408b6550caa6954904e3ad1a926f1724de54cfd243fe02828f40cd392575b" => :el_capitan
+    sha256 "731408b6550caa6954904e3ad1a926f1724de54cfd243fe02828f40cd392575b" => :yosemite
+  end
 
   devel do
     url 'https://github.com/tendermint/tendermint.git', :branch => 'master'
