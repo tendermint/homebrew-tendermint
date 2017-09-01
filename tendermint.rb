@@ -3,6 +3,7 @@ require 'formula'
 class Tendermint < Formula
   homepage 'https://github.com/tendermint/tendermint'
   url 'https://github.com/tendermint/tendermint.git', :tag => 'v0.10.3'
+  version 'v0.10.3'
 
   devel do
     url 'https://github.com/tendermint/tendermint.git', :branch => 'develop'
