@@ -25,4 +25,5 @@ brew install ethermint --devel
 
 Please see the documentation for the respective clients for more information on running them.
 [Ethermint](https://github.com/tendermint/ethermint)
+
 [Tendermint](https://github.com/tendermint/tendermint)
