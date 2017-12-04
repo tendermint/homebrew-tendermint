@@ -5,7 +5,7 @@ class Ethermint < Formula
   homepage 'https://github.com/tendermint/ethermint'
   url 'https://s3-us-west-2.amazonaws.com/tendermint/binaries/ethermint/0.5.3/ethermint_0.5.3_darwin-10.6-amd64.zip'
   sha256 '75040beb16b8fae6932a893616a2e3f8ee20a2e7957befecb7d7d5fcdf0e5ab9'
-  version 'v0.5.3'
+  version '0.5.3'
 
   bottle :unneeded
 

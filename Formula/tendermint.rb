@@ -5,7 +5,7 @@ class Tendermint < Formula
   homepage 'https://tendermint.com/'
   url 'https://s3-us-west-2.amazonaws.com/tendermint/binaries/tendermint/v0.12.1/tendermint_0.12.1_darwin_amd64.zip'
   sha256 '807b29cabc4e372aaee93347f617db8b88bf68c80cb40254c8cd0bd13110d51c'
-  version 'v0.12.1'
+  version '0.12.1'
 
   bottle :unneeded
 
@@ -34,6 +34,6 @@ class Tendermint < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/tendermint version")
+    assert_match version.to_s, shell_output("#{bin}/tendermint version").partition("-").first
   end
 end
