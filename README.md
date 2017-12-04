@@ -1,29 +1,55 @@
-# homebrew-tendermint
-Homebrew Tap for Tendermint and Ethermint.
+# Homebrew Tendermint
+
+A centralized repository for Tendermint-related brews.
+
+## Requirements
+
+* [Homebrew](https://github.com/Homebrew/brew)
+* El Capitan, Sierra and High Sierra. Untested everywhere else.
 
 ## Installation
-```
-brew tap tendermint/tendermint
+
+Run the following in your command-line:
+
+```sh
+$ brew tap tendermint/homebrew-tendermint
 ```
 
-### Tendermint Client
-```
-brew install tendermint
+## Usage
+
+Once the tap is installed, you can install `tendermint`, `ethermint`, or any formulae you might need via:
+
+```sh
+$ brew install tendermint
 ```
 
-### Ethermint Client
-```
-brew install ethermint
+```sh
+$ brew install ethermint
 ```
 
-*You can get the latest build by using the `--devel` flag.
+**Note:** For a list of available configuration options run:
+
+```sh
+$ brew options <formulae>
 ```
-brew install ethermint --devel
+
+For example, you can get the development build by providing `--devel` flag:
+
+```sh
+$ brew install tendermint --devel
 ```
+
+That's it!
+
+Please also follow the instructions from `brew info` at the end of the install to ensure you properly installed your formulae version.
 
 ## Running
 
 Please see the documentation for the respective clients for more information on running them.
-[Ethermint](https://github.com/tendermint/ethermint)
 
-[Tendermint](https://github.com/tendermint/tendermint)
+* [Tendermint](https://github.com/tendermint/tendermint)
+* [Ethermint](https://github.com/tendermint/ethermint)
+
+## License
+
+See [LICENSE](LICENSE).
