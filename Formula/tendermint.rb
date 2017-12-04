@@ -10,26 +10,27 @@ class Tendermint < Formula
   bottle :unneeded
 
   def install
-    bin.install "tendermint"
+    if File.exist?('tendermint') # pre-build binary
+      bin.install 'tendermint'
+    else # build from source
+      ENV["GOPATH"] = buildpath
+      tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
+      tendermintpath.install buildpath.children
+      cd tendermintpath do
+        system 'make', 'get_vendor_deps'
+        system 'make', 'build'
+        bin.install 'build/tendermint'
+        prefix.install_metafiles
+      end
+    end
   end
 
-  devel do
+  head do
     url 'https://github.com/tendermint/tendermint.git',
       :branch => 'develop'
 
     depends_on 'go' => :build
     depends_on 'glide' => :glide
-
-    def install
-      ENV["GOPATH"] = buildpath
-      (buildpath/"src/github.com/tendermint/tendermint").install buildpath.children
-      cd "src/github.com/tendermint/tendermint" do
-        system "make", "get_vendor_deps"
-        system "make", "build"
-        bin.install 'build/tendermint'
-        prefix.install_metafiles
-      end
-    end
   end
 
   test do

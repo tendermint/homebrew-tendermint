@@ -10,25 +10,26 @@ class Ethermint < Formula
   bottle :unneeded
 
   def install
-    bin.install "ethermint"
+    if File.exist?('ethermint') # pre-build binary
+      bin.install 'ethermint'
+    else # build from source
+      ENV['GOPATH'] = buildpath
+      ethermintpath = buildpath/"src/github.com/tendermint/ethermint"
+      ethermintpath.install buildpath.children
+      cd ethermintpath do
+        system 'make', 'get_vendor_deps'
+        system 'make', 'build'
+        bin.install 'build/ethermint'
+      end
+    end
   end
 
-  devel do
+  head do
     url 'https://github.com/tendermint/ethermint.git',
       :branch => 'develop'
 
     depends_on 'go' => :build
     depends_on 'glide' => :glide
-
-    def install
-      ENV["GOPATH"] = buildpath
-      (buildpath/"src/github.com/tendermint/ethermint").install buildpath.children
-      cd "src/github.com/tendermint/ethermint" do
-        system "make", "get_vendor_deps"
-        system "make", "build"
-        bin.install 'build/ethermint'
-      end
-    end
   end
 
   test do

@@ -33,12 +33,6 @@ $ brew install ethermint
 $ brew options <formulae>
 ```
 
-For example, you can get the development build by providing `--devel` flag:
-
-```sh
-$ brew install tendermint --devel
-```
-
 That's it!
 
 Please also follow the instructions from `brew info` at the end of the install to ensure you properly installed your formulae version.
