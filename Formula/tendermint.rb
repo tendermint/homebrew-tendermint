@@ -34,6 +34,7 @@ class Tendermint < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/tendermint version").partition("-").first
+    tendermint_version_without_hash = shell_output("#{bin}/tendermint version").partition("-").first
+    assert_match version.to_s, tendermint_version_without_hash
   end
 end

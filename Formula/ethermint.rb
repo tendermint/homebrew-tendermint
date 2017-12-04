@@ -33,6 +33,8 @@ class Ethermint < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/ethermint version")
+    ethermint_version = shell_output("#{bin}/ethermint version").split("\n").first.partition("  ")[2]
+    ethermint_version_without_hash = ethermint_version.partition("-").first
+    assert_match version.to_s, ethermint_version_without_hash
   end
 end
