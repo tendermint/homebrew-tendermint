@@ -9,7 +9,10 @@ class Tendermint < Formula
       :branch => "develop"
   end
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "8dad9e67b061a6c383d03981e612fa3212b1efbd320e73efcac427204512573a" => :high_sierra
+  end
 
   depends_on "go" => :build
   depends_on "glide" => :build

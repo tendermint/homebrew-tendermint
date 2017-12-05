@@ -9,7 +9,9 @@ class Ethermint < Formula
       :branch => "develop"
   end
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+  end
 
   depends_on "go" => :build
   depends_on "glide" => :build
