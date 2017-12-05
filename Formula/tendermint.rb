@@ -1,7 +1,7 @@
 class Tendermint < Formula
-  desc "Byzantine fault-tolerant replicated state machines in any programming language"
+  desc "BFT replicated state machines in any programming language"
   homepage "https://tendermint.com/"
-  if ARGV.build_from_source?
+  if build.with?("--build-from-source")
     url "https://github.com/tendermint/tendermint/releases/download/v0.12.1/darwin_amd64.zip"
     version "0.12.1"
     sha256 "128e89ec0dcfe5ed86a4effb3cbc1c8e37f09ae9ab5314f097dce4f06618d545"
@@ -22,7 +22,7 @@ class Tendermint < Formula
   bottle :unneeded
 
   def install
-    if ARGV.build_from_source? || ARGV.build_head?
+    if build.with?("--build-from-source") || build.head?
       ENV["GOPATH"] = buildpath
       tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
       tendermintpath.install buildpath.children
