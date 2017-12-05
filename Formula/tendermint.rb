@@ -9,10 +9,10 @@ class Tendermint < Formula
       :branch => "develop"
   end
 
-  depends_on "go" => :build
-  depends_on "glide" => :optional
-
   bottle :unneeded
+
+  depends_on "go" => :build
+  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
