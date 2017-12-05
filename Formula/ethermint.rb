@@ -7,10 +7,10 @@ class Ethermint < Formula
   head do
     url "https://github.com/tendermint/ethermint.git",
       :branch => "develop"
-
-    depends_on "go" => :build
-    depends_on "glide" => :optional
   end
+
+  depends_on "go" => :build
+  depends_on "glide" => :optional
 
   bottle :unneeded
 
