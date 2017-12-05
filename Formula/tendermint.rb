@@ -1,32 +1,14 @@
 class Tendermint < Formula
   desc "BFT replicated state machines in any programming language"
   homepage "https://tendermint.com/"
-  url "https://github.com/tendermint/tendermint/archive/v0.12.1.tar.gz"
-  sha256 "cd86033fb256a0b84d86379e2ab71c066fca3c3a07b69c4b4590150a3ea66ac6"
+  url "https://s3-us-west-2.amazonaws.com/tendermint/binaries/tendermint/v0.12.1/tendermint_0.12.1_darwin_amd64.zip"
+  version "0.12.1"
+  sha256 "807b29cabc4e372aaee93347f617db8b88bf68c80cb40254c8cd0bd13110d51c"
 
-  head do
-    url "https://github.com/tendermint/tendermint.git",
-      :branch => "develop"
-  end
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "8dad9e67b061a6c383d03981e612fa3212b1efbd320e73efcac427204512573a" => :high_sierra
-  end
-
-  depends_on "go" => :build
-  depends_on "glide" => :build
+  bottle :unneeded
 
   def install
-    ENV["GOPATH"] = buildpath
-    tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
-    tendermintpath.install buildpath.children
-    cd tendermintpath do
-      system "make", "get_vendor_deps"
-      system "make", "build"
-      bin.install "build/tendermint"
-      prefix.install_metafiles
-    end
+    bin.install "tendermint"
   end
 
   test do
