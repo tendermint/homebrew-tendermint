@@ -2,7 +2,6 @@ class Tendermint < Formula
   desc "BFT replicated state machines in any programming language"
   homepage "https://tendermint.com/"
   url "https://github.com/tendermint/tendermint/archive/v0.12.1.tar.gz"
-  version "0.12.1"
   sha256 "cd86033fb256a0b84d86379e2ab71c066fca3c3a07b69c4b4590150a3ea66ac6"
 
   head do
