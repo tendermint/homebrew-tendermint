@@ -1,9 +1,9 @@
 class Ethermint < Formula
   desc "Ethereum powered by Tendermint consensus"
   homepage "https://github.com/tendermint/ethermint"
-  url "https://s3-us-west-2.amazonaws.com/tendermint/binaries/ethermint/0.5.3/ethermint_0.5.3_darwin-10.6-amd64.zip"
+  url "https://github.com/tendermint/ethermint/archive/v0.5.3.tar.gz"
   version "0.5.3"
-  sha256 "75040beb16b8fae6932a893616a2e3f8ee20a2e7957befecb7d7d5fcdf0e5ab9"
+  sha256 "9ed0bc0702ccc272a70661536c3bad5ea8782f895902f8138de108ba573bfa3c"
 
   head do
     url "https://github.com/tendermint/ethermint.git",
@@ -16,17 +16,13 @@ class Ethermint < Formula
   bottle :unneeded
 
   def install
-    if File.exist?("ethermint") # pre-build binary
-      bin.install "ethermint"
-    else # build from source
-      ENV["GOPATH"] = buildpath
-      ethermintpath = buildpath/"src/github.com/tendermint/ethermint"
-      ethermintpath.install buildpath.children
-      cd ethermintpath do
-        system "make", "get_vendor_deps"
-        system "make", "build"
-        bin.install "build/ethermint"
-      end
+    ENV["GOPATH"] = buildpath
+    ethermintpath = buildpath/"src/github.com/tendermint/ethermint"
+    ethermintpath.install buildpath.children
+    cd ethermintpath do
+      system "make", "get_vendor_deps"
+      system "make", "build"
+      bin.install "build/ethermint"
     end
   end
 

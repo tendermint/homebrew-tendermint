@@ -1,15 +1,9 @@
 class Tendermint < Formula
   desc "BFT replicated state machines in any programming language"
   homepage "https://tendermint.com/"
-  if build.with?("--build-from-source")
-    url "https://github.com/tendermint/tendermint/releases/download/v0.12.1/darwin_amd64.zip"
-    version "0.12.1"
-    sha256 "128e89ec0dcfe5ed86a4effb3cbc1c8e37f09ae9ab5314f097dce4f06618d545"
-  else
-    url "https://s3-us-west-2.amazonaws.com/tendermint/binaries/tendermint/v0.12.1/tendermint_0.12.1_darwin_amd64.zip"
-    version "0.12.1"
-    sha256 "807b29cabc4e372aaee93347f617db8b88bf68c80cb40254c8cd0bd13110d51c"
-  end
+  url "https://github.com/tendermint/tendermint/archive/v0.12.1.tar.gz"
+  version "0.12.1"
+  sha256 "cd86033fb256a0b84d86379e2ab71c066fca3c3a07b69c4b4590150a3ea66ac6"
 
   head do
     url "https://github.com/tendermint/tendermint.git",
@@ -22,18 +16,14 @@ class Tendermint < Formula
   bottle :unneeded
 
   def install
-    if build.with?("--build-from-source") || build.head?
-      ENV["GOPATH"] = buildpath
-      tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
-      tendermintpath.install buildpath.children
-      cd tendermintpath do
-        system "make", "get_vendor_deps"
-        system "make", "build"
-        bin.install "build/tendermint"
-        prefix.install_metafiles
-      end
-    else
-      bin.install "tendermint"
+    ENV["GOPATH"] = buildpath
+    tendermintpath = buildpath/"src/github.com/tendermint/tendermint"
+    tendermintpath.install buildpath.children
+    cd tendermintpath do
+      system "make", "get_vendor_deps"
+      system "make", "build"
+      bin.install "build/tendermint"
+      prefix.install_metafiles
     end
   end
 
