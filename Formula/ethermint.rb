@@ -4,13 +4,13 @@ class Ethermint < Formula
   url "https://github.com/tendermint/ethermint/archive/v0.5.4.tar.gz"
   sha256 "b571f316841513efa16d8c62c8eeddac3f947af591f964aa3e3b1bb55f10f732"
 
+  bottle do
+    cellar :any_skip_relocation
+  end
+
   head do
     url "https://github.com/tendermint/ethermint.git",
       :branch => "develop"
-  end
-
-  bottle do
-    cellar :any_skip_relocation
   end
 
   depends_on "go" => :build

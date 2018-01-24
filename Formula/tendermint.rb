@@ -4,13 +4,13 @@ class Tendermint < Formula
   url "https://github.com/tendermint/tendermint/archive/v0.15.0.tar.gz"
   sha256 "8cc3d9dd5bc286e5609f08f97aa876fe85dd4fe2b9ce5effed54b5f47798cfff"
 
+  bottle do
+    cellar :any_skip_relocation
+  end
+
   head do
     url "https://github.com/tendermint/tendermint.git",
       :branch => "develop"
-  end
-
-  bottle do
-    cellar :any_skip_relocation
   end
 
   depends_on "go" => :build
