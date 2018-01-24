@@ -1,8 +1,8 @@
 class Ethermint < Formula
   desc "Ethereum powered by Tendermint consensus"
   homepage "https://github.com/tendermint/ethermint"
-  url "https://github.com/tendermint/ethermint/archive/v0.5.3.tar.gz"
-  sha256 "9ed0bc0702ccc272a70661536c3bad5ea8782f895902f8138de108ba573bfa3c"
+  url "https://github.com/tendermint/ethermint/archive/v0.5.4.tar.gz"
+  sha256 "b571f316841513efa16d8c62c8eeddac3f947af591f964aa3e3b1bb55f10f732"
 
   head do
     url "https://github.com/tendermint/ethermint.git",

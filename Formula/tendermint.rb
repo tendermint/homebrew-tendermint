@@ -1,8 +1,8 @@
 class Tendermint < Formula
   desc "BFT replicated state machines in any programming language"
   homepage "https://tendermint.com/"
-  url "https://github.com/tendermint/tendermint/archive/v0.12.1.tar.gz"
-  sha256 "cd86033fb256a0b84d86379e2ab71c066fca3c3a07b69c4b4590150a3ea66ac6"
+  url "https://github.com/tendermint/tendermint/archive/v0.15.0.tar.gz"
+  sha256 "8cc3d9dd5bc286e5609f08f97aa876fe85dd4fe2b9ce5effed54b5f47798cfff"
 
   head do
     url "https://github.com/tendermint/tendermint.git",
@@ -11,8 +11,6 @@ class Tendermint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a3e14b9559ad8d491e1d95c091710222cca8a7434aae0510aeb86864226d420e" => :sierra
-    sha256 "8dad9e67b061a6c383d03981e612fa3212b1efbd320e73efcac427204512573a" => :high_sierra
   end
 
   depends_on "go" => :build
