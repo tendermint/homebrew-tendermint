@@ -24,7 +24,6 @@ class Tendermint < Formula
       system "make", "get_vendor_deps"
       system "make", "build"
       bin.install "build/tendermint"
-      prefix.install_metafiles
     end
   end
 
