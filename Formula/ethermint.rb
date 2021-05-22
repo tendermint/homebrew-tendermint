@@ -10,11 +10,11 @@ class Ethermint < Formula
 
   head do
     url "https://github.com/tendermint/ethermint.git",
-      :branch => "develop"
+      branch: "develop"
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
